@@ -94,6 +94,7 @@
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
+(require 'setup-coffee-mode)
 
 ;; Language specific setup files
 (eval-after-load 'js2-mode '(require 'setup-js2-mode))
@@ -114,6 +115,7 @@
   (when (file-regular-p file)
     (load file)))
 
+(require 'expand-region-core)
 (require 'expand-region)
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)
