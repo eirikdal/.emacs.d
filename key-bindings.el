@@ -313,6 +313,9 @@
 (global-set-key (kbd "C-x C-o tx") (ffip-create-pattern-file-finder "*.txt"))
 (global-set-key (kbd "C-x C-o vm") (ffip-create-pattern-file-finder "*.vm"))
 
+;; Ace-jump mode
+(global-set-key (kbd "C-;") 'ace-jump-char-mode)
+
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)
 (define-key occur-mode-map (kbd "n") 'next-line)
