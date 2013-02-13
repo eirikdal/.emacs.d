@@ -41,7 +41,12 @@
 (define-key yas/keymap (kbd "C-a") 'yas/goto-start-of-active-field)
 
 ;; No dropdowns please, yas
-(setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt))
+;; (setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt))
+
+(setq yas/prompt-functions '(yas/dropdown-prompt
+                             yas/ido-prompt
+                             yas/completing-prompt))
+
 
 ;; Wrap around region
 (setq yas/wrap-around-region t)
