@@ -91,10 +91,12 @@
 (require 'setup-hippie)
 (require 'setup-yasnippet)
 (require 'setup-perspective)
+(require 'setup-groovy-mode)
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
 (require 'setup-coffee-mode)
+;(require 'setup-auto-complete-mode)
 
 ;; Language specific setup files
 (eval-after-load 'js2-mode '(require 'setup-js2-mode))
