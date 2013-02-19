@@ -96,7 +96,7 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 (require 'setup-coffee-mode)
-;(require 'setup-auto-complete-mode)
+(require 'setup-auto-complete-mode)
 
 ;; Language specific setup files
 (eval-after-load 'js2-mode '(require 'setup-js2-mode))
