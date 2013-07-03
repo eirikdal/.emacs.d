@@ -14,6 +14,13 @@
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path site-lisp-dir)
 
+;; Keep emacs Custom-settings in separate file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
+;; Set up appearance early
+(require 'appearance)
+
 ;; Settings for currently logged in user
 (setq user-settings-dir
       (concat user-emacs-directory "users/" user-login-name))
@@ -23,10 +30,6 @@
 (dolist (project (directory-files site-lisp-dir t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
-
-;; Keep emacs Custom-settings in separate file
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -44,28 +47,29 @@
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
 
-;; Setup elnode before packages to stop it from starting a server
-;;(require 'setup-elnode)
-
 ;; Setup packages
 (require 'setup-package)
 
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   (cons 'exec-path-from-shell melpa)
-   (cons 'paredit melpa)
-   (cons 'move-text melpa)
-   (cons 'gist melpa)
-   (cons 'htmlize melpa)
-   (cons 'elisp-slime-nav melpa)
-   ;(cons 'elnode marmalade)
-   (cons 'slime-js marmalade)
-   (cons 'git-commit-mode melpa)
-   (cons 'gitconfig-mode melpa)
-   (cons 'gitignore-mode melpa)
-   (cons 'clojure-mode melpa)
-   (cons 'nrepl melpa)))
+   '(paredit
+     move-text
+     gist
+     htmlize
+     visual-regexp
+     smartparens
+     ido-vertical-mode
+     simple-httpd
+     nodejs-repl
+     restclient
+     highlight-escape-sequences
+     elisp-slime-nav
+     git-commit-mode
+     gitconfig-mode
+     gitignore-mode
+     clojure-mode
+     nrepl)))
 
 (condition-case nil
     (init--install-packages)
@@ -77,7 +81,9 @@
 (require 'sane-defaults)
 
 ;; Setup environment variables from the user's shell.
-(when is-mac (exec-path-from-shell-initialize))
+(when is-mac
+  (require-package 'exec-path-from-shell)
+  (exec-path-from-shell-initialize))
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
@@ -96,18 +102,39 @@
 (require 'setup-coffee-mode)
 (require 'setup-auto-complete-mode)
 
+;; Default setup of smartparens
+(require 'smartparens-config)
+(setq sp-autoescape-string-quote nil)
+(--each '(css-mode-hook
+          restclient-mode-hook
+          js-mode-hook
+          markdown-mode)
+  (add-hook it 'turn-on-smartparens-mode))
+
 ;; Language specific setup files
 (eval-after-load 'js2-mode '(require 'setup-js2-mode))
 (eval-after-load 'ruby-mode '(require 'setup-ruby-mode))
 (eval-after-load 'clojure-mode '(require 'setup-clojure-mode))
 (eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
 
-;; Load slime-js when asked for
-(autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
-(autoload 'slime-js-jack-in-node "setup-slime-js" nil t)
+;; Load stuff on demand
+(autoload 'skewer-start "setup-skewer" nil t)
+(autoload 'skewer-demo "setup-skewer" nil t)
+(autoload 'flycheck-mode "setup-flycheck" nil t)
+(autoload 'auto-complete-mode "auto-complete" nil t)
 
 ;; Map files to modes
 (require 'mode-mappings)
+
+;; Highlight escape sequences
+(require 'highlight-escape-sequences)
+(hes-mode)
+(put 'font-lock-regexp-grouping-backslash 'face-alias 'font-lock-builtin-face)
+
+;; Visual regexp
+(require 'visual-regexp)
+(define-key global-map (kbd "M-&") 'vr/query-replace)
+(define-key global-map (kbd "M-/") 'vr/replace)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
@@ -144,20 +171,13 @@
 (require 'key-bindings)
 
 ;; Misc
-(require 'appearance)
+(require 'project-archetypes)
 (require 'my-misc)
 (when is-mac (require 'mac))
-
-;; Diminish modeline clutter
-(require 'diminish)
-(diminish 'yas/minor-mode)
-(diminish 'eldoc-mode)
-(diminish 'paredit-mode)
 
 ;; Elisp go-to-definition with M-. and back again with M-,
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav")
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t) (eldoc-mode 1)))
-(eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
 
 ;; Email, baby
 (require 'setup-mu4e)
@@ -169,6 +189,7 @@
 
 ;; Run at full power please
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
 ;; Conclude init by setting up specifics for the current user
