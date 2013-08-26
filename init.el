@@ -56,6 +56,7 @@
    '(paredit
      move-text
      gist
+     auto-complete
      htmlize
      visual-regexp
      smartparens

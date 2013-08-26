@@ -1,4 +1,5 @@
 (require 'magit-svn)
+(require 'magit-flow)
 
 ;; Subtler highlight
 (set-face-background 'magit-item-highlight "#121212")

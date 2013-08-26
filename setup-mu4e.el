@@ -2,6 +2,11 @@
 (setq mu4e-get-mail-command "offlineimap")
 (setq message-kill-buffer-on-exit t)
 
+(setq mu4e-maildir "~/Maildir/Steria")
+(setq mu4e-drafts-folder "/Drafts")
+(setq mu4e-sent-folder   "/Mail")
+(setq mu4e-trash-folder  "/Trash")
+
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
 
@@ -12,6 +17,12 @@
 (setq
  mu4e-view-show-images t
  mu4e-view-image-max-width 800)
+
+(setq
+ message-send-mail-function   'smtpmail-send-it
+ smtpmail-default-smtp-server "mail.steria.no"
+ smtpmail-smtp-server         "mail.steria.no"
+ smtpmail-local-domain        "steria.no")
 
 ;; use imagemagick, if available
 (when (fboundp 'imagemagick-register-types)

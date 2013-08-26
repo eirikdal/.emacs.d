@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/elpa/auto-complete-20130209.651")
+(add-to-list 'load-path "~/elpa/auto-complete-20130503.2013")
                                         ; Load the default configuration
 (require 'auto-complete-config)
                                         ; Make sure we can find the dictionaries
