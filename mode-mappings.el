@@ -30,10 +30,6 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.tag$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.vm$" . html-mode))
-(add-hook 'sgml-mode-hook
-          (lambda ()
-            (require 'rename-sgml-tag)
-            (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
 
 ;; JSP
 (autoload 'crappy-jsp-mode "crappy-jsp-mode")
@@ -90,9 +86,6 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-hook 'markdown-mode-hook (lambda () (define-key markdown-mode-map (kbd "<tab>") 'yas/expand)))
-
-;; Highlighting in editmsg-buffer for magit
-(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . conf-javaprop-mode))
 
 ;; org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
