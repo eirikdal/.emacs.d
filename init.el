@@ -55,7 +55,6 @@
   (packages-install
    '(paredit
      move-text
-     god-mode
      gist
      auto-complete
      htmlize
@@ -63,6 +62,8 @@
      flycheck
      flx
      flx-ido
+     css-eldoc
+     yasnippet
      smartparens
      ido-vertical-mode
      ido-at-point
@@ -71,12 +72,16 @@
      nodejs-repl
      restclient
      highlight-escape-sequences
+     whitespace-cleanup-mode
      elisp-slime-nav
      git-commit-mode
      gitconfig-mode
      gitignore-mode
      clojure-mode
-     nrepl)))
+     groovy-mode
+     prodigy
+     cider
+     cider-tracing)))
 
 (condition-case nil
     (init--install-packages)
@@ -94,15 +99,10 @@
 
 ;; guide-key
 (require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8" "C-x +"))
 (guide-key-mode 1)
-(setq guide-key/highlight-command-regexp "bookmark")
 (setq guide-key/recursive-key-sequence-flag t)
 (setq guide-key/popup-window-position 'bottom)
-
-;; god-mode
-(require 'god-mode)
-(global-set-key (kbd "<escape>") 'god-local-mode)
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
@@ -121,13 +121,22 @@
 (require 'setup-coffee-mode)
 (require 'setup-auto-complete-mode)
 
+(require 'prodigy)
+(global-set-key (kbd "C-x M-m") 'prodigy)
+
+;; Font lock dash.el
+(eval-after-load "dash" '(dash-enable-font-lock))
+
 ;; Default setup of smartparens
 (require 'smartparens-config)
 (setq sp-autoescape-string-quote nil)
 (--each '(css-mode-hook
           restclient-mode-hook
           js-mode-hook
-          markdown-mode)
+          java-mode
+          ruby-mode
+          markdown-mode
+          groovy-mode)
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files

@@ -30,9 +30,9 @@
 ;; Set up wrapping of pairs, with the possiblity of semicolons thrown into the mix
 
 (defun js2r--setup-wrapping-pair (open close)
-  (define-key js2-mode-map (kbd open) (λ (js2r--self-insert-wrapping open close)))
+  (define-key js2-mode-map (read-kbd-macro open) (λ (js2r--self-insert-wrapping open close)))
   (unless (s-equals? open close)
-    (define-key js2-mode-map (kbd close) (λ (js2r--self-insert-closing open close)))))
+    (define-key js2-mode-map (read-kbd-macro close) (λ (js2r--self-insert-closing open close)))))
 
 (define-key js2-mode-map (kbd ";")
   (λ (if (looking-at ";")
@@ -97,7 +97,7 @@
    ((and (js2-block-node-p (js2-node-at-point)) (looking-at " *}")) ";")
    ((not (eolp)) "")
    ((js2-array-node-p (js2-node-at-point)) (js2r--comma-unless "]"))
-   ((js2-object-node-p (js2-node-at-point)) (concat ": " (js2r--comma-unless "}")))
+   ((js2-object-node-p (js2-node-at-point)) (js2r--comma-unless "}"))
    ((js2-object-prop-node-p (js2-node-at-point)) (js2r--comma-unless "}"))
    ((js2-call-node-p (js2-node-at-point)) (js2r--comma-unless ")"))
    ((js2r--does-not-need-semi) "")
@@ -138,8 +138,8 @@
 ;; js2-mode steals TAB, let's steal it back for yasnippet
 (defun js2-tab-properly ()
   (interactive)
-  (let ((yas/fallback-behavior 'return-nil))
-    (unless (yas/expand)
+  (let ((yas-fallback-behavior 'return-nil))
+    (unless (yas-expand)
       (indent-for-tab-command)
       (if (looking-back "^\s*")
           (back-to-indentation)))))
@@ -201,7 +201,7 @@
   (let* ((settings (with-temp-buffer
                      (insert-file-literally file)
                      (javascript-mode)
-                     (let (kill-ring) (kill-comment 1000))
+                     (let (kill-ring kill-ring-yank-pointer) (kill-comment 1000))
                      (->> (buffer-substring (point-min) (point-max))
                        (s-trim)
                        (s-chop-prefix "module.exports = ")

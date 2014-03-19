@@ -1,9 +1,5 @@
 (require 'find-file-in-project)
 (require 's)
-(require 'eproject)
-
-;; Use eproject to find project root
-(setq ffip-project-root-function 'eproject-root)
 
 ;; No need to be stingy
 (setq ffip-limit 4096)
@@ -14,7 +10,7 @@
   "Return an alist of all filenames in the project and their path."
   (let ((file-alist nil))
     (mapcar (lambda (file)
-              (let ((file-cons (cons (s-chop-prefix (eproject-root) (expand-file-name file))
+              (let ((file-cons (cons (s-chop-prefix (file-truename (ffip-project-root)) (expand-file-name file))
                                      (expand-file-name file))))
                 (add-to-list 'file-alist file-cons)
                 file-cons))
@@ -34,20 +30,13 @@
                (concat "-not -regex \".*" name ".*\"")) names " "))
 
 (defun ffip-local-excludes (&rest names)
-  "Given a set of names, will exclude results with those names in the path.
-
-Example:
-(ffip-local-excludes \"target\" \"overlays\")"
+  "Given a set of names, will exclude results with those names in the path."
   (set (make-local-variable 'ffip-find-options)
        (ffip--create-exclude-find-options names)))
 
 (defun ffip-local-patterns (&rest patterns)
-  "An exhaustive list of file name patterns to look for.
-
-Example:
-(ffip-local-patterns \"*.js\" \"*.jsp\" \"*.css\")"
+  "An exhaustive list of file name patterns to look for."
   (set (make-local-variable 'ffip-patterns) patterns))
-
 
 ;; Function to create new functions that look for a specific pattern
 (defun ffip-create-pattern-file-finder (&rest patterns)
@@ -59,11 +48,16 @@ Example:
 
 ;; Default excludes - override with ffip-local-excludes
 
-(setq ffip-find-options
-      (ffip--create-exclude-find-options
-       '("node_modules"
-         "target"
-         "overlays"
-         "vendor")))
+(setq-default ffip-find-options
+              (ffip--create-exclude-find-options
+               '("node_modules"
+                 "target"
+                 "out"
+                 "overlays"
+                 "build"
+                 "dist"
+                 "vendor"
+                 ".cask"
+                 ".repl")))
 
 (provide 'setup-ffip)
