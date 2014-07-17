@@ -1,0 +1,128 @@
+ll
+cd src/
+ll
+cd main/
+ll
+cd webapp/
+ll
+bower install karma-jasmine --save
+bower search karma
+karma start ../resources/karma/karma.spec.conf.js
+karma install -g karma-jasmine
+bower install -g karma-jasmine
+karma start ../resources/karma/karma.spec.conf.js
+bower install karma-coverage
+bower install karma-coverage
+karma start ../resources/karma/karma.spec.conf.js
+karma start ../resources/karma/karma.spec.conf.js
+npm install -g karma-jasmine
+sudo npm install -g karma-jasmine
+sudo npm install -g karma-jasmine
+sudo npm install -g karma-coverage
+karma start ../resources/karma/karma.spec.conf.js
+sudo npm install -g phantomjs
+karma start ../resources/karma/karma.spec.conf.js
+phantomjs
+sudo npm install -g coffee
+karma start ../resources/karma/karma.spec.conf.js
+npm install -g karma-phantomjs-launcher
+sudo npm install -g karma-phantomjs-launcher
+karma start ../resources/karma/karma.spec.conf.js
+karma start ../resources/karma/karma.spec.conf.js
+karma start ../resources/karma/karma.spec.conf.js
+karma start ../resources/karma/karma.spec.conf.js
+npm install -g karma-coffee-preprocessor
+sudo npm install -g karma-coffee-preprocessor
+karma start ../resources/karma/karma.spec.conf.js
+karma start ../resources/karma/karma.spec.conf.js
+npm install -g karma-firefox-launcher --save-dev
+npm install karma-firefox-launcher --save-dev
+npm install -g karma-firefox-launcher
+sudo npm install -g karma-firefox-launcher
+karma start ../resources/karma/karma.spec.conf.js
+ll
+cd spec/
+ll
+karma start innfrakt.spec.js 
+ll
+rm #	
+ll
+karma start innfrakt.spec.js 
+karma start innfrakt.spec.js 
+karma start innfrakt.spec.js 
+karma start innfrakt.spec.js 
+karma start innfrakt.spec.js 
+karma start innfrakt.spec.js 
+karma start innfrakt.spec.js 
+nll
+ll
+cd ..
+ll
+cd ..
+ll
+cd we
+cd webapp/
+ll
+cd innfrakt/
+ll
+cd dist/
+ll
+cd ..
+pwd
+cd ..
+ll
+ll
+cd ..
+ll
+cd ..
+cd ..
+ll
+git cherry-pick 4bed0af
+mvn clean test
+mvn clean test
+karma start src/main/resources/karma/karma.spec.conf.js
+karma start src/main/resources/karma/karma.spec.conf.js
+mvn clean deploy -Pdeploy-test
+cd ..
+mvn clean deploy -Pdeploy-test
+mvn clean deploy -Pdeploy-test
+mvn clean deploy -Pdeploy-test -DskipTests
+mvn clean deploy -Pdeploy-test -DskipTests
+cd ../
+cd levdb/
+cd ../leveranse/
+cd ../../lib/lib-
+cd ../../lib/lib-jetty/
+cd ../lib-webservice/
+cd ../lib-webservice/
+cd ../lib-war
+ll
+cd ../../leveranse/leveranse/
+cd leveranse-war/
+ll
+cd ../
+mvn clean install
+cd leveranse-war/
+ll
+mvn clean install -DskipTests
+cat ~/workspace/lreg/lreg-drift/L824/OppdateringAvArealIJordregisterRapport.groovy
+cat ~/workspace/lreg/lreg-drift/L824/OppdateringAvArealIJordregister.groovy
+cd ../../../lib/
+ll
+cd ../leveranse/
+cd ../lib/
+cd ../leveranse/
+cd leveranse/leveranse-
+cd leveranse/leveranse-war/
+cd ..
+mvn clean deploy -Pdeploy-innfrakt
+mvn clean deploy -Pdeploy-innfrakt
+mvn clean deploy -Pdeploy-innfrakt
+mvn clean deploy -Pdeploy-innfrakt -DskipTests
+mvn clean deploy -Pdeploy-innfrakt -DskipTests
+mvn clean deploy -Pdeploy-innfrakt -DskipTests
+cd workspace/leveranse/
+cd leveranse/leveranse-war/src/main/webapp/
+ll
+cd components/apps/
+ll
