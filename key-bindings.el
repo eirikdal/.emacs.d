@@ -348,4 +348,8 @@
 (define-key occur-mode-map (kbd "n") 'next-line)
 (define-key occur-mode-map (kbd "p") 'previous-line)
 
+(global-set-key (kbd "C-x C-e") 'eval-region)
+(global-set-key (kbd "C-x e") 'eval-buffer)
+(global-set-key (kbd "C-x C-l") 'lines-to-cslist)
+
 (provide 'key-bindings)
