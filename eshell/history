@@ -1,0 +1,128 @@
+ll
+cd ../ekrav/
+cd ../lib/
+ll
+git pull
+cd ../ekrav/
+cd cd ../test/
+cd ../
+ll
+cd tes
+cd test/
+ll
+-rw-r--r--   1 hauk184        hauk184      6237 2014-06-30 10:02 slfj.logc
+cd ../lib/
+cd ../enonic/
+cd ~
+cd workspace/pris/
+cd functions/
+ll
+ls
+ll
+diff pdc300ba\ \(1\).sql pdc300ba.sql
+rm pdc300ba\ \(1\).sql
+ll
+ls
+ll
+ll
+ll
+unset ll
+ll
+unset ll
+ll
+ll
+ll
+unset ll
+ll
+ll
+ll
+cd ../../enonic/
+cd ../lib/
+cd ../enonic/
+cd slf-resources/
+mvn deploy -Pdeploy-test
+cd ../../test/
+cd ../ekrav/
+mvn versions:set -DnewVersion=1.1.7-SNAPSHOT
+cd ../test/bugzfront/
+mvn install
+cd target/
+ll
+ls
+ll
+ls
+java -jar bugzfront-1.0.war 
+java -jar bugzfront-1.0.war 8080 /bugzfront
+java -jar bugzfront-1.0.war 8080 /bugzfront
+cd ..
+cd ../../leveranse/
+cd ../enonic/
+cd ../test/bugzfront/
+cd ../ekrav/
+cd ../enonic/
+ll
+ls
+cd scripts/
+./ilstat.sh 
+cd web/
+wget -A https://www.slf.dep.no/filserver/
+wget --help
+wget -r https://www.slf.dep.no/filserver/
+ll
+ls
+wget --accept pdf,jpg --mirror --progress --adjust-extension --convert-links --backup-converted --no-parent http://site/path/
+wget --accept pdf,jpg --mirror --progress --adjust-extension --convert-links --backup-converted --no-parent http://www.slf.dep.no/filserver
+--2015-01-13 14:40:10--  http://www.slf.dep.no/robots.txt
+wget --accept pdf,jpg --mirror --progress --convert-links --backup-converted --no-parent http://www.slf.dep.no/filserver
+wget --accept pdf,jpg --mirror --progress --backup-converted --no-parent http://www.slf.dep.no/filserver
+wget --accept pdf,jpg http://www.slf.dep.no/filserver
+ls
+ll
+unset 
+unset ll
+ll
+ls
+alias
+unset 
+unset --help
+unalias
+alias
+alias --help
+alias --help
+ll
+ls
+ll
+ls
+ll
+alias ll='ls -l'
+ll
+ll
+;;
+ll
+ll
+cd workspace/enonic/
+cd scripts/
+ll
+./ilstat.sh 
+wget \     --recursive \     --no-clobber \     --page-requisites \     --html-extension \     --convert-links \     --restrict-file-names=windows \     --domains website.org \     --no-parent \         www.slf.dep.no/filserver
+wget      --recursive      --no-clobber      --page-requisites      --html-extension      --convert-links      --restrict-file-names=windows      --domains website.org     --no-parent www.slf.dep.no/filserver
+wget --recursive --no-clobber --page-requisites --html-extension  --convert-links    --restrict-file-names=windows      --domains website.org     --no-parent www.slf.dep.no/filserver
+wget --recursive --no-clobber --page-requisites --html-extension  --convert-links    --restrict-file-names=windows      --domains website.org     --no-parent https://www.slf.dep.no/filserver
+wget --recursive --no-clobber --page-requisites --html-extension  --convert-links    --restrict-file-names=windows      --domains website.org     --no-parent https://www.slf.dep.no/filserver
+wget --recursive --no-clobber --page-requisites --html-extension  --convert-links    --restrict-file-names=windows      --domains website.org     --no-parent https://www.slf.dep.no/filserver
+wget --recursive --no-clobber --page-requisites --html-extension  --convert-links    --restrict-file-names=windows      --domains website.org     --no-parent https://www.slf.dep.no/filserver/
+ls
+ll web/
+ll www.slf.dep.no/
+ll www.slf.dep.no/filserver/
+wget --recursive --no-clobber --page-requisites --html-extension  --convert-links    --restrict-file-names=windows      --domains website.org https://www.slf.dep.no/filserver/
+wget --recursive --page-requisites --html-extension  --restrict-file-names=windows      --domains website.org https://www.slf.dep.no/filserver/
+wget -r http://www.slf.dep.no/filserver/
+wget -r https://www.slf.dep.no/filserver/
+wget --help
+wget -r --no-parent https://www.slf.dep.no/filserver/
+wget -r --no-parent https://www.slf.dep.no/filserver/
+ll
+ll .tmp/www.slf.dep.no/filserver/PT900/1010_fore/
+cd ../../fiks/
+cd ../leveranse/
