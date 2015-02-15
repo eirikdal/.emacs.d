@@ -278,13 +278,16 @@
 ;; Toggle quotes
 (global-set-key (kbd "C-\"") 'toggle-quotes)
 
+(global-set-key (kbd "C-S-l") 'indent-buffer)
+
 ;; Sorting
 (global-set-key (kbd "M-s l") 'sort-lines)
 
 ;; Increase number at point (or other change based on prefix arg)
 (global-set-key (kbd "C-+") 'change-number-at-point)
-(global-set-key (kbd "C-?") 'subtract-number-at-point)
 (eval-after-load 'undo-tree '(define-key undo-tree-map (kbd "C-?") nil))
+
+(global-set-key (kbd "C-?") 'undo-tree-redo)
 
 ;; Browse the kill ring
 (global-set-key (kbd "C-x C-y") 'browse-kill-ring)
