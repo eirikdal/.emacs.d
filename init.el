@@ -80,8 +80,7 @@
      clojure-mode
      groovy-mode
      prodigy
-     cider
-     cider-tracing)))
+     cider)))
 
 (condition-case nil
     (init--install-packages)
