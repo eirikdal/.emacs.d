@@ -355,4 +355,11 @@
 (global-set-key (kbd "C-x e") 'eval-buffer)
 (global-set-key (kbd "C-x C-l") 'lines-to-cslist)
 
+(global-set-key (kbd "C-S-p") 'move-text-up)
+(global-set-key (kbd "C-S-n") 'move-text-down)
+
+(global-set-key [M-S-up] 'move-text-up)
+(global-set-key [M-S-down] 'move-text-down)
+
 (provide 'key-bindings)
+
